@@ -3,18 +3,34 @@
 {% block content %}
     {% for post in posts %}
         <div class="post">
-            <div class="post">
+            <div class="date">
                 <p>Date/Time : <span id="datetime"></span></p>
-                
                 <script>
                     var dt = new Date();
                     document.getElementById("datetime").innerHTML = dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
-                </script>
-                
+                </script>                
+            </div>
+            
+            <div>
+                <div class="input">
+                    <form>
+                        Company: <input type="text" name="G_Company"><br><br>
+                        Ticker: <input type="text" name="G_Ticker"><br><br>
+                        Datetime: <input type="text" name="G_Datetime"><br><br>
+                        Spearker: <input type="text" name="G_Speaker"><br><br>
+                        Dial in: <input type="text" name="G_Dialin"><br><br>
+                        Passcode: <input type="text" name="G_Passcode"><br><br>
+                        
+                        <input type="submit" value="Submit">
+                        <input type="reset"><br><br>
+                        
+                        <strong><em>Invitation: </em></strong><br>
+                        <output type="text" name="Describtion">
+                    </form>
+                </div>
             </div>
         
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+            
         </div>
     {% endfor %}
 {% endblock %}
