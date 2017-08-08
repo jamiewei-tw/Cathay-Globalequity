@@ -4,7 +4,13 @@
     {% for post in posts %}
         <div class="post">
             <div class="post">
-                <P>published: {{ post.published_date }}</p>
+                <p>Date/Time : <span id="datetime"></span></p>
+                
+                <script>
+                    var dt = new Date();
+                    document.getElementById("datetime").innerHTML = dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
+                </script>
+                
             </div>
         
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
