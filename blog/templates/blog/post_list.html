@@ -1,29 +1,14 @@
-<html>
-    <head>
-        <title>Jamie' Blog</title>
-    </head>
-    
-    <div>
-        <h1>
-            <em>
-                <strong>This is Heading</strong>
-            </em>
-        </h1>
-    </div>
-    
+{% extends 'blog/base.html' %}
+
+{% block content %}
     {% for post in posts %}
-    <div>
-        <P>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
+        <div class="post">
+            <div class="post">
+                <P>published: {{ post.published_date }}</p>
+            </div>
+        
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
     {% endfor %}
-    
-    <p>Hi there!</p>
-    <p>This is Jamie Wei from Taiwan</p>
-     
-    <a href="https://www.google.com.tw/">link</a>
-    
-    <ul><li>Jamie</li><li>Nara</li></ul>
-    
-</html>
+{% endblock %}
