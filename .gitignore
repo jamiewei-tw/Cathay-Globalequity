@@ -5,4 +5,4 @@ myvenv
 db.sqlite3
 /static
 .DS_Store
-mysite/Secret_Settings.py
+mysite/Settings_Information.py
