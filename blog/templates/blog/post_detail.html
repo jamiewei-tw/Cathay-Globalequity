@@ -1,12 +1,36 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
+    {% for post in posts %}
+        <div class="post">
+            <div class="posts">
+                <p>Date/Time : <span id="datetime"></span></p>
+                <script>
+                    var dt = new Date();
+                    document.getElementById("datetime").innerHTML = dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
+                </script>                
             </div>
-        {% endif %}
+            
+            <div>
+                <div class="input">
+                    <form>
+                        Company: <input type="text" name="G_Company"><br><br>
+                        Ticker: <input type="text" name="G_Ticker"><br><br>
+                        Datetime: <input type="text" name="G_Datetime"><br><br>
+                        Spearker: <input type="text" name="G_Speaker"><br><br>
+                        Dial in: <input type="text" name="G_Dialin"><br><br>
+                        Passcode: <input type="text" name="G_Passcode"><br><br>
+                        
+                        <input type="submit" value="Submit">
+                        <input type="reset"><br><br>
+                        
+                        <strong><em>Invitation: </em></strong><br>
+                        <output type="text" name="Describtion">
+                    </form>
+                </div>
+            </div>
         
-    </div>
+            
+        </div>
+    {% endfor %}
 {% endblock %}
