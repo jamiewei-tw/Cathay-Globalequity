@@ -20,7 +20,7 @@ def ProfilefromGFinance(ticker, datetime, speaker, dialin, passcode, url):
     area, language = areacheck(WholeTicker)
     
     R_ticker = '(' + ticker + area + ')'
-    content(R_ticker, datetime, speaker, language, dialin, passcode, CompanyName, Summary)
+    content(ticker, R_ticker, datetime, speaker, language, dialin, passcode, CompanyName, Summary)
 
 def areacheck(Ticker):
     Area = ''
@@ -54,7 +54,9 @@ def areacheck(Ticker):
     
     
     
-def content(Stock, datetime, speaker, language, dialin, passcode, CompanyName, Description):
+def content(ticker, Stock, datetime, speaker, language, dialin, passcode, CompanyName, Description):
+    Ticker = ticker + ".txt"
+    W = open(Ticker, "w")
     Company = CompanyName + Stock 
     W.write('Date & Time:' + datetime + '\n')
     W.write('Company: ' + Company + '\n')
@@ -63,18 +65,3 @@ def content(Stock, datetime, speaker, language, dialin, passcode, CompanyName, D
     W.write('Dial In: ' + dialin + '\n')
     W.write('Passcode: ' + passcode + '\n')
     W.write(Description)
-    
-
-    
-if __name__ == '__main__':
-    ticker = input("Ticker: ")
-    datetime = input("Date & Time: ")
-    speaker = input("Speaker: ")
-    dialin = input("Dial in: ")
-    passcode = input("Passcode: ")
-    Filename = ticker + '.txt'
-    W = open(ticker, "w")
-    baseurl = 'https://www.google.com/finance?q='
-    url = baseurl + ticker
-    ProfilefromGFinance(ticker, datetime, speaker, dialin, passcode, url)
-   

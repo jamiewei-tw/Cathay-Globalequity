@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
+from .Data_AllByInput import ProfilefromGFinance
 
 # Create your views here.
 
@@ -13,10 +14,13 @@ def post_detail(request, pk):
     return render(request, 'blog/post_list.html', {'post': post})
     
 def submit(request):
-    A = request.POST['number1']
-    B = request.POST['number2']
-    C = A + B
-    Test = "test"
-    W = open(Test, "w")
-    W.write(C)
-    return render(request, 'blog/post_list.html',{C})
+    ticker = request.POST['G_Ticker']
+    datetime = request.POST['G_Datetime']
+    speaker = request.POST['G_Speaker']
+    dialin = request.POST['G_Dialin']
+    passcode = request.POST['G_Passcode']
+    baseurl = 'https://www.google.com/finance?q='
+    url = baseurl + ticker
+    ProfilefromGFinance(ticker, datetime, speaker, dialin, passcode, url)
+    return render(request, 'blog/post_list.html')
+    
