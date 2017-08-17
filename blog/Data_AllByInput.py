@@ -8,19 +8,17 @@ from bs4 import BeautifulSoup
 import urllib.parse
 import sys
 
-def ProfilefromGFinance(ticker, datetime, speaker, dialin, passcode, url): 
+def ProfilefromGFinance(url): 
 
     head = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64)  AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}   
     response = requests.get(url, headers=head).content
     soup = BeautifulSoup(response, 'lxml')
-    Summary = soup.find('div', 'companySummary').contents[0]
-    CompanyName = soup.find('div', class_='appbar-snippet-primary').span.text
+    Description = soup.find('div', 'companySummary').contents[0]
     WholeTicker = soup.find('div', class_='appbar-snippet-secondary').span.text
     
     area, language = areacheck(WholeTicker)
-    
-    R_ticker = '(' + ticker + area + ')'
-    content(ticker, R_ticker, datetime, speaker, language, dialin, passcode, CompanyName, Summary)
+           
+    return(language, Description)
 
 def areacheck(Ticker):
     Area = ''
@@ -51,17 +49,4 @@ def areacheck(Ticker):
         Area = ''
      
     return Area, Language
-    
-    
-    
-def content(ticker, Stock, datetime, speaker, language, dialin, passcode, CompanyName, Description):
-    Ticker = ticker + ".txt"
-    W = open(Ticker, "w")
-    Company = CompanyName + Stock 
-    W.write('Date & Time:' + datetime + '\n')
-    W.write('Company: ' + Company + '\n')
-    W.write('Spearker: ' + speaker + '\n')
-    W.write('Language: ' + language + '\n')
-    W.write('Dial In: ' + dialin + '\n')
-    W.write('Passcode: ' + passcode + '\n')
-    W.write(Description)
+

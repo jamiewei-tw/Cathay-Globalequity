@@ -14,6 +14,7 @@ def post_detail(request, pk):
     return render(request, 'blog/post_list.html', {'post': post})
     
 def submit(request):
+    company = request.POST['G_Company']
     ticker = request.POST['G_Ticker']
     datetime = request.POST['G_Datetime']
     speaker = request.POST['G_Speaker']
@@ -21,6 +22,6 @@ def submit(request):
     passcode = request.POST['G_Passcode']
     baseurl = 'https://www.google.com/finance?q='
     url = baseurl + ticker
-    ProfilefromGFinance(ticker, datetime, speaker, dialin, passcode, url)
+    language, description = ProfilefromGFinance(url)
     return render(request, 'blog/result.html', locals())
     
