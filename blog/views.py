@@ -22,5 +22,5 @@ def submit(request):
     baseurl = 'https://www.google.com/finance?q='
     url = baseurl + ticker
     ProfilefromGFinance(ticker, datetime, speaker, dialin, passcode, url)
-    return render(request, 'blog/post_list.html')
+    return render(request, 'blog/result.html', locals())
     
