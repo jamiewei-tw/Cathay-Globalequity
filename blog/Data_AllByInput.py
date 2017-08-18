@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import urllib.parse
 import sys
 
-def ProfilefromGFinance(url): 
+def ProfilefromGFinance(Company, Ticker, url): 
 
     head = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64)  AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}   
     response = requests.get(url, headers=head).content
@@ -16,15 +16,15 @@ def ProfilefromGFinance(url):
     Description = soup.find('div', 'companySummary').contents[0]
     WholeTicker = soup.find('div', class_='appbar-snippet-secondary').span.text
     
-    area, language = areacheck(WholeTicker)
+    area, language, title= areacheck(WholeTicker, Company, Ticker)
            
-    return(language, Description)
+    return(language, Description, title)
 
-def areacheck(Ticker):
+def areacheck(wholeTicker, company, ticker):
     Area = ''
     Language = ''
-    location = Ticker.find(':')
-    area = Ticker[1:location]
+    location = wholeTicker.find(':')
+    area = wholeTicker[1:location]
     US = ['NASDAQ','NYSE','AMEX']
     CH = ['SHE','SHA']
     
@@ -32,21 +32,25 @@ def areacheck(Ticker):
     if (area in US):
         Area = ' US'
         Language = 'English'
+        title = company + '(' + ticker + Area + ')'
         
     elif (area in CH):
         Area = ' CH'
         Language = 'Mandarin'
+        title = company + '(' + ticker + Area + ')'
         
     elif area == 'HKG':
         Area = ' HK'
         Language = 'Mandarin'
+        title = company + '(' + ticker + Area + ')'
         
     elif area == 'TYO':
         Area = ' JP'
         Language = 'English'
+        title = company + '(' + ticker + Area + ')'
         
     else:
         Area = ''
      
-    return Area, Language
+    return Area, Language, title
 

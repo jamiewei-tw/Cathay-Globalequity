@@ -18,10 +18,8 @@ def submit(request):
     ticker = request.POST['G_Ticker']
     datetime = request.POST['G_Datetime']
     speaker = request.POST['G_Speaker']
-    dialin = request.POST['G_Dialin']
-    passcode = request.POST['G_Passcode']
     baseurl = 'https://www.google.com/finance?q='
     url = baseurl + ticker
-    language, description = ProfilefromGFinance(url)
+    language, description, title = ProfilefromGFinance(company, ticker, url)
     return render(request, 'blog/result.html', locals())
     

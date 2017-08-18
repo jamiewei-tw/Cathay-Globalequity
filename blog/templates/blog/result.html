@@ -13,18 +13,37 @@
             <h1><a href="http://127.0.0.1:8000">English Invitation</a></h1>
         </div>
         
-        <h1> Result </h1>
+        <h1>
+            <tr>
+                <td>{{title}}</td>
+                <td>Conference Call</td>
+            </tr>        
+        </h1>
         <tr>
-            <td>{{company}}</td></br></br>
-            <td>{{ticker}}</td></br></br>
-            <td>{{datetime}}</td></br></br>
-            <td>{{speaker}}</td></br></br>
-            <td>{{dialin}}</td></br></br>
-            <td>{{passcode}}</td></br></br>
-            <td>{{language}}</td></br></br>
-            <td>{{description}}</td></br></br>
+            <td>Date: </td>
+            <td>{{datetime}}</td></br>
         </tr>
         
-       
+        <tr>
+            <td>Language: </td>
+            <td>{{language}}</td></br>
+        </tr>
+        
+        <tr>
+            <td>Speaker: </td>
+            <td>{{speaker}}</td></br>
+        </tr>
+        
+        <tr>
+            <td>Dial in No.: RSVP </td></br>
+        </tr>
+        
+        <tr>
+            <td>Passcode: RSVP </td></br>
+        </tr>
+        
+        <tr>
+            <td>{{description}}</td></br>
+        </tr>
     </body>
 </html>
