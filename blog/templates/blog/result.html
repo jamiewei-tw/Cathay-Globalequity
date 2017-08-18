@@ -6,9 +6,17 @@
         <link type="text/css" rel="stylesheet" href="{% static 'css/result.css' %}"/>
     </head>
     
-    <body>
+    <body>          
         <div class="page-header">
             <h1><a href="http://127.0.0.1:8000">English Invitation</a></h1>
+        </div>
+        
+        <div class="email-title">
+            <table>
+                <tr>
+                    <td>Cathay Conference Call - {{title}}_{{datetime}}</td></br>
+                </tr>
+            </table>
         </div>
         
         <div class="title">
@@ -16,7 +24,7 @@
         </div>        
         
         <div class="detail">
-            <p>Date: {{datetime}}</p>
+            <p></br>Date: {{datetime}} HK Time</p>
             <p>Language: {{language}}</p>
             <p>Speaker: {{speaker}}</p>
             <p>Dial in No.: <span>RSVP</span></p>
@@ -24,8 +32,23 @@
         </div>
         
         <div class="des">
-            <p>{{description}}</p>
-        </div>       
+            <p>{{description}}</br></br></p>
+        </div>  
+        
+        <div class="logo">
+            <img src="https://www.cathaysec.com.tw/exclude_AL/images/logo.png"></br>
+            
+            <p><strong>Joseph Huang, Head of Global Equity Dept.</strong></br>
+            Direct: +886 2 7711 1681 / Mobile: +886 932 573 789</br>
+            Email: Joseph@cathaysec.com.tw</br></br>
+            <strong>Maggie Lien, Regional Institutional Sales</strong></br>
+            Direct: +886 2 7711 1689 / Mobile: +886 911 222 514</br>
+            Email: maggielien@cathaysec.com.tw</br></br>
+            <strong>Yvette Lee, Regional Institutional Sales</strong></br>
+            Direct: +886 2 7711 1683 / Mobile: +886 983 555 910</br>
+            Email: Yvette.lee@cathaysec.com.tw</p>
+            
+        </div> 
         
     </body>
 </html>
