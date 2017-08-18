@@ -3,42 +3,29 @@
 <html>
     <head>
         <title>Cathay Global Equities</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/result.css' %}"/>
     </head>
     
     <body>
         <div class="page-header">
             <h1><a href="http://127.0.0.1:8000">English Invitation</a></h1>
         </div>
-           
-        <tr>
-            <td><font size="18"><strong><u><em>{{title}} Conference Call</em></u></strong></font></td></br>
-        </tr>        
         
-        <tr>
-            <td><font size="8"><strong> Date: {{datetime}}</strong></font></td></br>
-        </tr>
+        <div class="title">
+            <h2><em>{{title}}</em> Conference Call</h2>
+        </div>        
         
-        <tr>
-            <td><font size="8"><strong>Language: {{language}}</strong></font></td></br>
-        </tr>
+        <div class="detail">
+            <p>Date: {{datetime}}</p>
+            <p>Language: {{language}}</p>
+            <p>Speaker: {{speaker}}</p>
+            <p>Dial in No.: <span>RSVP</span></p>
+            <p>Passcode: <span>RSVP</span></p>
+        </div>
         
-        <tr>
-            <td><font size="8"><strong>Speaker: {{speaker}}</strong></font></td></br>
-        </tr>
+        <div class="des">
+            <p>{{description}}</p>
+        </div>       
         
-        <tr>
-            <td><font size="8"><strong>Dial in No.:<font color="#cc0000">RSVP</strong></font></strong></font></td></br>
-        </tr>
-        
-        <tr>
-            <td><font size="8"><strong>Passcode:<font color="#cc0000">RSVP</font></strong></font></td></br></br>
-        </tr>
-        
-        <tr>
-            <td><font size="8">{{description}}</font></td>
-        </tr>
     </body>
 </html>

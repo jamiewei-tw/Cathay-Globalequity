@@ -51,6 +51,8 @@ def areacheck(wholeTicker, company, ticker):
         
     else:
         Area = ''
+        Language = 'English'
+        title = company + '(' + ticker + ')'
      
     return Area, Language, title
 
