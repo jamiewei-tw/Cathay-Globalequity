@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    
+        <div class="post">
+            <div class="posts">
+                <p>Date/Time : <span id="datetime"></span></p>
+                <script>
+                    var dt = new Date();
+                    document.getElementById("datetime").innerHTML = dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
+                </script>                
+            </div>
+            
+            <div>
+                <div class="input">
+                    <form action="submit" method="post">
+                        {% csrf_token %}
+                        <p style="color: red"><strong>**請輸入正確的陸、港及日股代碼**</br>
+                        (陸股：六位數、港日股：四位數)</strong></p></br>
+                        Company: <input type="text" name="G_Company"><br><br>
+                        Ticker: <input type="text" name="G_Ticker"><br><br>
+                        Datetime: <input type="text" name="G_Datetime"><br><br>
+                        Speaker: <input type="text" name="G_Speaker"><br><br>
+
+                        
+                        <input type="submit" value="Submit">
+                        
+                                              
+                    </form>
+                </div>
+            </div>
+        
+            
+        </div>
+    
+{% endblock %}
