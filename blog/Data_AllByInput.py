@@ -10,7 +10,6 @@ import sys
 
 def ProfilefromGFinance(Company, Ticker, url): 
 
-    print("傳送成功")
     head = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64)  AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}   
     response = requests.get(url, headers=head).content
     soup = BeautifulSoup(response, 'lxml')
