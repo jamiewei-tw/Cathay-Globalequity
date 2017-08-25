@@ -27,6 +27,7 @@ def areacheck(wholeTicker, company, ticker):
     area = wholeTicker[1:location]
     US = ['NASDAQ','NYSE','AMEX']
     CH = ['SHE','SHA']
+    GR = ['ETR', 'FRA']
     
     
     if (area in US):
@@ -43,12 +44,42 @@ def areacheck(wholeTicker, company, ticker):
         Area = ' HK'
         Language = 'Mandarin'
         title = company + '(' + ticker + Area + ')'
-        
+    
     elif area == 'TYO':
         Area = ' JP'
         Language = 'English'
         title = company + '(' + ticker + Area + ')'
+                
+    elif (area in GR):
+        Area = ' GR'
+        Language = 'English'
+        title = company + '(' + ticker + Area + ')'
+
+    elif area == 'LON':
+        Area = ' LN'
+        Language = 'English'
+        title = company + '(' + ticker + Area + ')'
+            
+    elif area == 'ASX':
+        Area = ' AU'
+        Language = 'English'
+        title = company + '(' + ticker + Area + ')'
         
+    elif area == 'VTX':
+        Area = ' VX'
+        Language = 'English'
+        title = company + '(' + ticker + Area + ')'
+
+    elif area == 'KRX':
+        Area = ' KRS'
+        Language = 'Enlish'
+        title = company + '(' + ticker + Area + ')'
+        
+    elif area == 'NSE':
+        Area = ' IN'
+        Language = 'English'
+        title = company + '(' + ticker + Area + ')'
+
     else:
         Area = ''
         Language = 'English'
